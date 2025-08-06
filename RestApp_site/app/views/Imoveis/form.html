@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Imoveis' /}
+
+
+<form action ="@{Imoveis.salvar}">
+
+<h1> Informações do Imovel</h1> 
+
+        <input type="hidden" name="imovel.id" value="${imov?.id}">
+
+	    <label for = "idCodigoAnuncio"> Codigo Anuncio:</label>
+		<input type = "int" id="idCodigoAnuncio" name="imovel.codigoAnuncio" value="${imov?.codigoAnuncio}">
+		</br>
+		
+		<label for= "idBairro">Bairro:</label>
+		<input type = "text" id="idBairro" name="imovel.bairro" value="${imov?.bairro}">
+		</br>
+		
+		<label for= "idQuantidadeComodos">Quantidade de comodos:</label>
+		<input type = "int" id="idQuantidadeComodos" name="imovel.quantidadeComodos" value="${imov?.quantidadeComodos}">
+		</br>
+		
+		<label for= "idAreaInterna">Area Interna:</label>
+		<input type = "double" id="idAreaInterna" name="imovel.areaInterna" value="${imov?.areaInterna}">
+		</br>
+		
+		<label for= "idAreaExterna">Area Externa: </label>
+		<input type = "double" id="idAreaExterna" name="imovel.areaExterna" value="${imov?.areaExterna}">
+		</br>
+		
+		<label for = "idTipoImovel">Tipo do Imovel:</label>
+		<select id="idTipoImovel" name="imovel.tipoImovel">
+			<option value=""> </option>
+			<option value="Casa" ${imov?.tipoImovel == 'Casa' ? 'selectde' : ''}>Casa</option>
+			<option value="Apartamento" ${imov?.tipoImovel == 'Apartamento' ? 'selectde' : ''}>Apartamento</option>
+			<option value="Chale" ${imov?.tipoImovel == 'Chale' ? 'selectde' : ''}>Chalé</option>
+	
+			</select>
+		</br>
+		
+		Descrição
+		<select name="func.tipoimovel.id">
+			
+			#{list items: tiposImoveis, as: 'ti'}
+			<option value="${ti.descricao}" #{if imov?.tipoimovel?.id == ti.id} selected #{/if}>${ti.descricao}</option>
+			#{/list}
+			
+			</selct> </br>
+	
+		<input type = "submit" value="Cadastrar">
+		
+
+	
+	
+	
+	</form>
+	
+	
+	

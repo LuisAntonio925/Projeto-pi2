@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Imoveis' /}
+
+<form action="@{TipoImoveis.listar}" method="GET">
+	<label>Buscar:</label>
+	<input type="text" name="termo" value="${termo}" />
+	<input type="submit" value = "buscar"/>
+</form>
+
+
+#{list items: tiposImoveis, as: 't'}
+  ${t.descricao} - <a href="@{TipoImoveis.remover(t.id)}">remover</a> <a href="@{TipoImoveis.editar(t.id)}">editar</a></br>
+
+  #{/list}
+#{else}
+
+nenhum imovel cadastrado.
+ 
+#{/else}
+
+<a href="@{TipoImoveis.form}"> cadastrar novo </a>
+
+		
+		
+		
+		
+	
+	
+	

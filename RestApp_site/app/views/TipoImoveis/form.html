@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Imoveis' /}
+
+
+<form action ="@{TipoImoveis.salvar}">
+
+<h1> Tipos do Imovel</h1> 
+
+        <input type="hidden" name="tipoImovel.id" value="${tImovel?.id}">
+
+	    <label for = "idDescricao"> Descrição:</label>
+		<input type = "text" id="idDescricao" name="tipoImovel.descricao" value="${tImovel?.descricao}">
+		</br>
+		
+	
+	
+		<input type = "submit" value="Cadastrar">
+		
+
+	
+	
+	
+	</form>
+	
+	
+	
